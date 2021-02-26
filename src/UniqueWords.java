@@ -1,4 +1,13 @@
+/* Project: Lab 2
+ * Class: UniqueWords.java
+ * Author: DeJonte July
+ * Date: February 25, 2021
+ * This Program counts the number of unique strings in an array list of strings
+ */
+
 import java.util.ArrayList;
+
+import com.sun.jdi.Value;
 
 public class UniqueWords
 {
@@ -9,17 +18,34 @@ public class UniqueWords
    */
    public static int countUnique(ArrayList<String> list)
    {
-	  int count = 0;
+	  int count = 0; 
 	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
-      }
-	  return count;
-   }
+	  //for loop to iterate through the array list 
+      for (int i = 0; i < list.size(); i++){
+    	  for (int j = i+1; j < list.size(); j++){
+    	 
+    		  
+    		  //compares the current value (i) to the value that follows it (j)
+    	  if(list.get(i).equals(list.get(j))) {
+    		  
+    		  count++;
+    		  }
 
+    	  
+  
+    		  
+    	  }
+      
+ 
+      }
+      count = list.size() - count; 
+	  return count;
+	  
+   }
+   
+
+//main method 
+   
    public static void main(String[] args)
    {
       ArrayList <String> words = new ArrayList<>();
@@ -30,6 +56,7 @@ public class UniqueWords
 	  words.add("orange");
 	  words.add("sun");
 	  words.add("moon");
+
    
 	  int unique = countUnique(words);
       System.out.println(words + " has " + unique + " unique words");
